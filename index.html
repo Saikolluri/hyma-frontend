@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hyma Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Hyma <span>Technologies</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#ideas">Ideas</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Reach Us</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Technology that powers ideas</h1>
+    <p>
+      A modern innovation platform helping startups grow in Tier-1 & Tier-2 cities
+      across India through technology, guidance, and community.
+    </p>
+    <div class="hero-buttons">
+      <button onclick="scrollToSection('ideas')" class="btn primary">Explore Ideas</button>
+      <button class="btn secondary">Join Community</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section light" id="about">
+  <div class="content">
+    <h2>About Hyma Technologies</h2>
+    <p>
+      Hyma Technologies is an innovation-first technology company focused on empowering
+      entrepreneurs and early-stage startups. We help founders understand company
+      registration, compliance, documentation, and government policies relevant to
+      building IT companies in India.
+    </p>
+
+    <p>
+      Our mission is to bridge the gap between ideas and execution by providing
+      a collaborative ecosystem, especially for startups in Tier-1 and Tier-2 cities.
+    </p>
+
+    <div class="info-buttons">
+      <button class="btn outline">Select Location</button>
+      <button class="btn outline">Required Documents</button>
+      <button class="btn outline">Startup Policies</button>
+    </div>
+  </div>
+</section>
+
+<!-- POST IDEA -->
+<section class="section glass" id="ideas">
+  <div class="content">
+    <h2>Post Your Startup Idea</h2>
+
+    <div class="form-card">
+      <input id="title" type="text" placeholder="Startup / Idea Title" />
+      <textarea id="description" placeholder="Describe your idea clearly"></textarea>
+
+      <button class="btn primary full" onclick="postIdea()">Submit Idea</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY IDEAS -->
+<section class="section light">
+  <div class="content">
+    <h2>Community Ideas</h2>
+    <div id="ideasContainer" class="ideas-grid">
+      <!-- Ideas appear here -->
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <input id="emailInput" type="email" placeholder="Enter your email address" />
+  <button class="btn primary" onclick="subscribeEmail()">Sign Up</button>
+</div>
+</section>
+
+<!-- FLOAT BUTTON -->
+<button class="float-btn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    Developed & Deployed by
+    <strong>Sai Chowdary Kolluri</strong>
+  </p>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
+
