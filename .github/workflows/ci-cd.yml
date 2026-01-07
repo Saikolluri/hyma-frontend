@@ -1,0 +1,26 @@
+name: Hyma Technologies CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Basic HTML check
+        run: |
+          if [ ! -f index.html ]; then
+            echo "index.html not found"
+            exit 1
+          fi
+          echo "HTML check passed"
+
+      - name: Deploy notice
+        run: echo "Deployment will be handled by Netlify"
+
