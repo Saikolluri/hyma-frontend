@@ -1,196 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hyma Technologies | India’s Startup Innovation Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hymatechnologies | Startup & Software Development</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
-  <style>
-    :root {
-      --brand-green: #1E3523;
-      --brand-lime: #D2ED66;
-      --bg-sand: #DADDCF;
-    }
+    <style>
+        :root {
+            --brand-green: #1E3523;
+            --brand-lime: #D2ED66;
+            --bg-sand: #DADDCF;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--brand-green);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-green);
+            scroll-behavior: smooth;
+            margin: 0;
+        }
 
-    h1, h2, h3 {
-      font-family: 'IBM Plex Sans', sans-serif;
-    }
+        h1, h2, h3 {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 600;
+        }
 
-    /* Ticker */
-    @keyframes ticker {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .ticker-text {
-      white-space: nowrap;
-      animation: ticker 25s linear infinite;
-    }
+        .bg-sand { background-color: var(--bg-sand); }
 
-    /* Reveal animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        .card-bg {
+            background-color: rgba(210, 237, 102, 0.1);
+            border: 1px solid rgba(210, 237, 102, 0.2);
+        }
 
-    /* FAQ */
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      opacity: 1;
-      padding-bottom: 20px;
-    }
-    .faq-item.active i {
-      transform: rotate(45deg);
-      color: var(--brand-lime);
-    }
-
-    .card-bg {
-      background: rgba(210, 237, 102, 0.05);
-      border: 1px solid rgba(210, 237, 102, 0.1);
-    }
-
-    #scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 0%;
-      background: var(--brand-lime);
-      z-index: 100;
-    }
-
-    /* WhatsApp pulse */
-    @keyframes pulse-green {
-      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-    }
-    .chat-bubble {
-      animation: pulse-green 2s infinite;
-    }
-  </style>
+        .faq-border {
+            border-bottom: 1px solid rgba(30, 53, 35, 0.1);
+        }
+    </style>
 </head>
 
-<body class="text-white">
+<body class="text-[#1E3523]">
 
-<div id="scroll-progress"></div>
+<!-- HERO -->
+<section class="relative min-h-[750px] flex flex-col text-white bg-cover bg-center"
+    style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2000');">
 
-<!-- Ticker -->
-<div class="bg-[#D2ED66] py-2 overflow-hidden border-b border-black/10">
-  <div class="ticker-text font-bold text-[10px] uppercase tracking-widest text-[#1E3523]">
-    🚀 2026 INDIA TECH TRENDS • AGENTIC AI • ESG PLATFORMS • INDIA STACK SOLUTIONS • HYMA TECHNOLOGIES
-  </div>
-</div>
+    <nav class="max-w-7xl mx-auto w-full px-6 py-6 flex justify-between items-center">
+        <span class="text-2xl font-bold tracking-tight">Hymatechnologies</span>
 
-<!-- Navbar -->
-<nav class="sticky top-0 z-50 bg-[#1E3523]/95 backdrop-blur px-6 py-4 flex justify-between items-center border-b border-white/10">
-  <div class="font-black text-xl uppercase">Hyma Technologies</div>
-  <a href="#contact" class="bg-[#D2ED66] text-[#1E3523] px-6 py-2 rounded-full font-bold text-xs uppercase">
-    Connect
-  </a>
-</nav>
+        <div class="hidden lg:flex gap-8 font-semibold text-sm uppercase">
+            <a href="#services" class="hover:text-[#D2ED66]">Services</a>
+            <a href="#process" class="hover:text-[#D2ED66]">Process</a>
+            <a href="#contact" class="hover:text-[#D2ED66]">Contact</a>
+        </div>
 
-<!-- Hero -->
-<section class="relative h-[90vh] flex items-center justify-center text-center px-6">
-  <div class="absolute inset-0 bg-cover"
-    style="background-image:linear-gradient(rgba(30,53,35,.75),rgba(30,53,35,.75)),url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=2000');">
-  </div>
+        <a href="#contact" class="bg-[#D2ED66] text-[#1E3523] px-5 py-2 rounded-lg font-semibold text-sm">
+            Contact Us
+        </a>
+    </nav>
 
-  <div class="relative z-10 max-w-5xl">
-    <h1 class="text-6xl md:text-[8rem] font-black leading-[0.85] uppercase reveal">
-      BUILD THE <span class="text-[#D2ED66]">FUTURE</span>
-    </h1>
-    <p class="text-xl mt-8 opacity-90 reveal">
-      India’s premier software & startup innovation partner
-    </p>
-    <a href="#contact"
-       class="inline-block mt-10 bg-[#D2ED66] text-[#1E3523] px-10 py-5 rounded-full font-black text-lg">
-      START YOUR PROJECT
-    </a>
-  </div>
+    <div class="max-w-7xl mx-auto w-full px-6 flex-grow flex items-center">
+        <div class="max-w-3xl">
+            <h1 class="text-6xl md:text-8xl leading-tight mb-6">
+                Launch Your <br> Vision
+            </h1>
+            <p class="text-lg md:text-xl mb-10 opacity-90">
+                We build, register, and scale startups with modern software and strategic guidance.
+            </p>
+            <a href="#contact" class="bg-[#D2ED66] text-[#1E3523] px-10 py-5 rounded-lg font-bold text-lg inline-block">
+                Get Started Today
+            </a>
+        </div>
+    </div>
 </section>
 
-<!-- Services -->
-<section class="py-32 px-6">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-    <div class="card-bg p-10 rounded-3xl reveal">
-      <i class="ti ti-robot text-4xl text-[#D2ED66] mb-4"></i>
-      <h3 class="font-bold uppercase mb-2">Agentic AI</h3>
-      <p class="opacity-60 text-sm">Autonomous AI systems built for Indian-scale operations.</p>
-    </div>
+<!-- ABOUT -->
+<section class="bg-sand py-24 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div>
+            <h2 class="text-5xl md:text-6xl mb-6">Your Startup, <br>Our Expertise</h2>
+            <p class="text-lg opacity-90">
+                From idea validation to scalable software, we help founders focus on growth while we handle the complexity.
+            </p>
+        </div>
 
-    <div class="card-bg p-10 rounded-3xl reveal">
-      <i class="ti ti-leaf text-4xl text-[#D2ED66] mb-4"></i>
-      <h3 class="font-bold uppercase mb-2">Green Tech</h3>
-      <p class="opacity-60 text-sm">ESG & sustainability platforms aligned with Indian policy.</p>
+        <div class="h-[420px] rounded-2xl overflow-hidden shadow-xl">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000"
+                 class="w-full h-full object-cover" alt="Expertise">
+        </div>
     </div>
-
-    <div class="card-bg p-10 rounded-3xl reveal">
-      <i class="ti ti-code text-4xl text-[#D2ED66] mb-4"></i>
-      <h3 class="font-bold uppercase mb-2">Custom Software</h3>
-      <p class="opacity-60 text-sm">Scalable web & cloud solutions for startups.</p>
-    </div>
-  </div>
 </section>
 
-<!-- Contact -->
-<section id="contact" class="py-32 px-6 text-center">
-  <h2 class="text-6xl font-black mb-6">READY TO BUILD?</h2>
-  <p class="opacity-70 mb-10">Chat with us directly on WhatsApp</p>
-  <a href="https://wa.me/91XXXXXXXXXX"
-     class="inline-flex items-center gap-4 bg-[#25D366] px-10 py-5 rounded-2xl font-black text-xl">
-    <i class="ti ti-brand-whatsapp text-3xl"></i> WhatsApp Us
-  </a>
+<!-- PROCESS -->
+<section id="process" class="bg-sand py-24 px-6 border-t border-black/5">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+        <div>
+            <h2 class="text-5xl md:text-6xl mb-6">Our Process</h2>
+
+            <div class="space-y-10 mt-10">
+                <div class="flex gap-6">
+                    <div class="bg-[#1E3523] text-[#DADDCF] w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl mb-1">Strategy</h3>
+                        <p class="opacity-70 text-sm">Ideation, planning & market validation.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="bg-[#1E3523] text-[#DADDCF] w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl mb-1">Build</h3>
+                        <p class="opacity-70 text-sm">Development, testing & compliance.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="bg-[#1E3523] text-[#DADDCF] w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl mb-1">Scale</h3>
+                        <p class="opacity-70 text-sm">Growth, optimization & support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-[550px] rounded-2xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1000"
+                 class="w-full h-full object-cover" alt="Process">
+        </div>
+    </div>
 </section>
 
-<footer class="py-10 text-center text-white/30 text-[10px] tracking-[0.4em] uppercase border-t border-white/10">
-  © 2026 Hyma Technologies • India
+<!-- SERVICES -->
+<section id="services" class="bg-[#1E3523] py-24 px-6">
+    <div class="max-w-7xl mx-auto text-center mb-16 text-[#DADDCF]">
+        <h2 class="text-5xl font-bold">Why Choose Hymatechnologies?</h2>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 text-[#DADDCF]">
+        <div class="card-bg p-8 rounded-xl text-center">
+            <h3 class="text-xl mb-3">Startup Registration</h3>
+            <p class="text-sm opacity-80">Legal & compliance support from day one.</p>
+        </div>
+
+        <div class="card-bg p-8 rounded-xl text-center">
+            <h3 class="text-xl mb-3">Custom Software</h3>
+            <p class="text-sm opacity-80">Scalable web & cloud solutions.</p>
+        </div>
+
+        <div class="card-bg p-8 rounded-xl text-center">
+            <h3 class="text-xl mb-3">Strategic Guidance</h3>
+            <p class="text-sm opacity-80">Technology & growth consulting.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-[#1E3523] py-24 px-6 text-[#DADDCF]">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+        <div>
+            <h2 class="text-6xl font-bold mb-6">Let’s Talk</h2>
+            <p class="text-xl opacity-80">
+                Ready to build something impactful? Let’s connect.
+            </p>
+        </div>
+
+        <form class="space-y-6">
+            <input type="text" placeholder="Name" class="w-full p-4 rounded-lg text-[#1E3523]" />
+            <input type="email" placeholder="Email" class="w-full p-4 rounded-lg text-[#1E3523]" />
+            <textarea placeholder="Message" class="w-full p-4 h-32 rounded-lg text-[#1E3523]"></textarea>
+            <button class="bg-[#D2ED66] text-[#1E3523] px-10 py-4 rounded-lg font-bold text-lg">
+                Send Message
+            </button>
+        </form>
+    </div>
+</section>
+
+<footer class="bg-[#1E3523] border-t border-white/10 text-white/30 py-10 text-center text-xs">
+    © 2026 Hymatechnologies. All Rights Reserved.
 </footer>
-
-<a href="https://wa.me/91XXXXXXXXXX"
-   class="fixed bottom-10 right-10 chat-bubble bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center">
-  <i class="ti ti-brand-whatsapp text-3xl"></i>
-</a>
-
-<script>
-  window.onscroll = () => {
-    const scrolled = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    document.getElementById("scroll-progress").style.width = (scrolled / height) * 100 + "%";
-
-    document.querySelectorAll(".reveal").forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-        el.classList.add("active");
-      }
-    });
-  };
-</script>
 
 </body>
 </html>
