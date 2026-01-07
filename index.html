@@ -2,113 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hyma Technologies</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hyma Technologies | India’s Startup Innovation Hub</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <style>
+    :root {
+      --brand-green: #1E3523;
+      --brand-lime: #D2ED66;
+      --bg-sand: #DADDCF;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--brand-green);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    /* Ticker */
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .ticker-text {
+      white-space: nowrap;
+      animation: ticker 25s linear infinite;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FAQ */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      opacity: 1;
+      padding-bottom: 20px;
+    }
+    .faq-item.active i {
+      transform: rotate(45deg);
+      color: var(--brand-lime);
+    }
+
+    .card-bg {
+      background: rgba(210, 237, 102, 0.05);
+      border: 1px solid rgba(210, 237, 102, 0.1);
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--brand-lime);
+      z-index: 100;
+    }
+
+    /* WhatsApp pulse */
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    .chat-bubble {
+      animation: pulse-green 2s infinite;
+    }
+  </style>
 </head>
-<body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">Hyma <span>Technologies</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#ideas">Ideas</a>
-    <a href="#">Contact Us</a>
-    <a href="#">Reach Us</a>
-  </nav>
-</header>
+<body class="text-white">
 
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Technology that powers ideas</h1>
-    <p>
-      A modern innovation platform helping startups grow in Tier-1 & Tier-2 cities
-      across India through technology, guidance, and community.
-    </p>
-    <div class="hero-buttons">
-      <button onclick="scrollToSection('ideas')" class="btn primary">Explore Ideas</button>
-      <button class="btn secondary">Join Community</button>
-    </div>
+<div id="scroll-progress"></div>
+
+<!-- Ticker -->
+<div class="bg-[#D2ED66] py-2 overflow-hidden border-b border-black/10">
+  <div class="ticker-text font-bold text-[10px] uppercase tracking-widest text-[#1E3523]">
+    🚀 2026 INDIA TECH TRENDS • AGENTIC AI • ESG PLATFORMS • INDIA STACK SOLUTIONS • HYMA TECHNOLOGIES
   </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section light" id="about">
-  <div class="content">
-    <h2>About Hyma Technologies</h2>
-    <p>
-      Hyma Technologies is an innovation-first technology company focused on empowering
-      entrepreneurs and early-stage startups. We help founders understand company
-      registration, compliance, documentation, and government policies relevant to
-      building IT companies in India.
-    </p>
-
-    <p>
-      Our mission is to bridge the gap between ideas and execution by providing
-      a collaborative ecosystem, especially for startups in Tier-1 and Tier-2 cities.
-    </p>
-
-    <div class="info-buttons">
-      <button class="btn outline">Select Location</button>
-      <button class="btn outline">Required Documents</button>
-      <button class="btn outline">Startup Policies</button>
-    </div>
-  </div>
-</section>
-
-<!-- POST IDEA -->
-<section class="section glass" id="ideas">
-  <div class="content">
-    <h2>Post Your Startup Idea</h2>
-
-    <div class="form-card">
-      <input id="title" type="text" placeholder="Startup / Idea Title" />
-      <textarea id="description" placeholder="Describe your idea clearly"></textarea>
-
-      <button class="btn primary full" onclick="postIdea()">Submit Idea</button>
-    </div>
-  </div>
-</section>
-
-<!-- COMMUNITY IDEAS -->
-<section class="section light">
-  <div class="content">
-    <h2>Community Ideas</h2>
-    <div id="ideasContainer" class="ideas-grid">
-      <!-- Ideas appear here -->
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<div class="newsletter">
-  <input id="emailInput" type="email" placeholder="Enter your email address" />
-  <button class="btn primary" onclick="subscribeEmail()">Sign Up</button>
 </div>
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 bg-[#1E3523]/95 backdrop-blur px-6 py-4 flex justify-between items-center border-b border-white/10">
+  <div class="font-black text-xl uppercase">Hyma Technologies</div>
+  <a href="#contact" class="bg-[#D2ED66] text-[#1E3523] px-6 py-2 rounded-full font-bold text-xs uppercase">
+    Connect
+  </a>
+</nav>
+
+<!-- Hero -->
+<section class="relative h-[90vh] flex items-center justify-center text-center px-6">
+  <div class="absolute inset-0 bg-cover"
+    style="background-image:linear-gradient(rgba(30,53,35,.75),rgba(30,53,35,.75)),url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=2000');">
+  </div>
+
+  <div class="relative z-10 max-w-5xl">
+    <h1 class="text-6xl md:text-[8rem] font-black leading-[0.85] uppercase reveal">
+      BUILD THE <span class="text-[#D2ED66]">FUTURE</span>
+    </h1>
+    <p class="text-xl mt-8 opacity-90 reveal">
+      India’s premier software & startup innovation partner
+    </p>
+    <a href="#contact"
+       class="inline-block mt-10 bg-[#D2ED66] text-[#1E3523] px-10 py-5 rounded-full font-black text-lg">
+      START YOUR PROJECT
+    </a>
+  </div>
 </section>
 
-<!-- FLOAT BUTTON -->
-<button class="float-btn" onclick="scrollToTop()">↑</button>
+<!-- Services -->
+<section class="py-32 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+    <div class="card-bg p-10 rounded-3xl reveal">
+      <i class="ti ti-robot text-4xl text-[#D2ED66] mb-4"></i>
+      <h3 class="font-bold uppercase mb-2">Agentic AI</h3>
+      <p class="opacity-60 text-sm">Autonomous AI systems built for Indian-scale operations.</p>
+    </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>
-    Developed & Deployed by
-    <strong>Sai Chowdary Kolluri</strong>
-  </p>
+    <div class="card-bg p-10 rounded-3xl reveal">
+      <i class="ti ti-leaf text-4xl text-[#D2ED66] mb-4"></i>
+      <h3 class="font-bold uppercase mb-2">Green Tech</h3>
+      <p class="opacity-60 text-sm">ESG & sustainability platforms aligned with Indian policy.</p>
+    </div>
+
+    <div class="card-bg p-10 rounded-3xl reveal">
+      <i class="ti ti-code text-4xl text-[#D2ED66] mb-4"></i>
+      <h3 class="font-bold uppercase mb-2">Custom Software</h3>
+      <p class="opacity-60 text-sm">Scalable web & cloud solutions for startups.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-32 px-6 text-center">
+  <h2 class="text-6xl font-black mb-6">READY TO BUILD?</h2>
+  <p class="opacity-70 mb-10">Chat with us directly on WhatsApp</p>
+  <a href="https://wa.me/91XXXXXXXXXX"
+     class="inline-flex items-center gap-4 bg-[#25D366] px-10 py-5 rounded-2xl font-black text-xl">
+    <i class="ti ti-brand-whatsapp text-3xl"></i> WhatsApp Us
+  </a>
+</section>
+
+<footer class="py-10 text-center text-white/30 text-[10px] tracking-[0.4em] uppercase border-t border-white/10">
+  © 2026 Hyma Technologies • India
 </footer>
 
-<!-- JS -->
-<script src="script.js"></script>
+<a href="https://wa.me/91XXXXXXXXXX"
+   class="fixed bottom-10 right-10 chat-bubble bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center">
+  <i class="ti ti-brand-whatsapp text-3xl"></i>
+</a>
+
+<script>
+  window.onscroll = () => {
+    const scrolled = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById("scroll-progress").style.width = (scrolled / height) * 100 + "%";
+
+    document.querySelectorAll(".reveal").forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  };
+</script>
 
 </body>
 </html>
