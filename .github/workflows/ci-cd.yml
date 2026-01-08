@@ -1,4 +1,4 @@
-name: Hyma Technologies CI/CD
+name: Hyma Technologies CI with Docker
 
 on:
   push:
@@ -6,21 +6,22 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Basic HTML check
+      - name: Verify index.html
         run: |
           if [ ! -f index.html ]; then
-            echo "index.html not found"
+            echo "index.html missing"
             exit 1
           fi
-          echo "HTML check passed"
+          echo "index.html found"
 
-      - name: Deploy notice
-        run: echo "Deployment will be handled by Netlify"
+      - name: Build Docker image
+        run: |
+          docker build -t hyma-frontend .
 
